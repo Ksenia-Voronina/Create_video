@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Видео бегущей строки</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+
+</head>
+
+<body style="background-color:#eee">
+        <header>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container justify-content-between">
+            </div>
+          </div>
+        </header>
+
+    <h3 align="center">Создание видео бегущей текстовой строки</h3>
+
+    <div class="text-center mb-3">
+        <img src="{% static '/img/belka.webp' %}" align="center" height="400">
+    </div>
+
+
+    <form method="GET">
+        <p align="center">Введите ваше текстовое сообщение:</p>
+        <div align="center">
+            <input type="text" name="text_line" placeholder="Стажировка" required>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+    function save() {
+        var line = document.getElementById("text_line").value;
+        alert(text_line);
+    }
+    </script>
+
+</body>
+</html>
