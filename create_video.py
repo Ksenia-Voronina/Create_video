@@ -5,8 +5,8 @@ import transliterate
 
 def create_video(line: str):
     # Ширина и высота видео
-    width = 1440
-    height = 810
+    width = 1920
+    height = 1080
 
     # Преобразуем строку: русские символы заменяем английскими
     line = transliterate.translit(line, 'ru', reversed=True)
@@ -20,15 +20,19 @@ def create_video(line: str):
 
     # Параметры шрифта
     font = cv2.FONT_HERSHEY_SIMPLEX
-    font_scale = 5
-    font_thickness = 5
+    if len(line) >= 20:
+        font_scale = 1
+        font_thickness = 1
+    else:
+        font_scale = 5
+        font_thickness = 5
     font_color = (0, 255, 127)  # Зеленый цвет текста
 
     # Размеры текста в пикселях
     line_len = cv2.getTextSize(line, font, font_scale, font_thickness)
 
     # Видеопоток с частотой 24 кадра в секунду
-    out = cv2.VideoWriter("video.mp4", cv2.VideoWriter_fourcc(*'mp4v'), 24, (width, height))
+    out = cv2.VideoWriter("video.mp4", cv2.VideoWriter_fourcc(*'mp4v'), 72, (width, height))
 
     while True:
         # Очистка кадра
